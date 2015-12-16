@@ -7,7 +7,5 @@ DEPENDENCIES
 GRAPH
   apt (2.9.2)
   chef_docker_version_poc (0.1.0)
-    docker (>= 0.0.0)
-  compat_resource (12.5.24)
-  docker (2.3.15)
-    compat_resource (>= 12.5.23)
+    docker (~> 1.0)
+  docker (1.0.49)
