@@ -1,0 +1,24 @@
+---
+driver_plugin: vagrant
+driver_config:
+  require_chef_omnibus: latest
+  customize:
+    memory: 1024
+
+provisioner:
+  name: chef_zero
+  data_path: test/shared
+    
+platforms:
+  - name: ubuntu-14.04
+    driver_config:
+      # https://github.com/chef/bento
+      box: opscode-ubuntu-14.04
+      box_url: http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-14.04_chef-provisionerless.box
+    run_list:
+      - recipe[apt]
+
+suites:
+  - name: default
+    run_list:
+      - recipe[chef_docker_version_poc]
